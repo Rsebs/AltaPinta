@@ -1,9 +1,10 @@
-/* :root {
-    --black: #272829
-    --gray: #61677A
-    --gray-light: #D8D9DA
-    --white: #FFF6E0
-} */
+:root {
+    --black: #272829;
+    --gray: #61677A;
+    --gray-light: #D8D9DA;
+    --white: #FFF6E0;
+    --click: #8F43EE;
+}
 
 html {
     font-size: 62.5%;
@@ -15,9 +16,16 @@ html {
 
 /* Util */
 .btn {
-    background-color: #635985;
+    background-color: #FEFBF6;
     padding: 1rem;
+    border: 1px solid #000000;
     border-radius: 10px;
+    display: block;
+    text-align: center;
+}
+.btn:hover {
+    color: #8F43EE;
+    cursor: pointer;
 }
 
 
@@ -40,15 +48,15 @@ a {
     transition: color .1s ease-out;
 }
 a:hover {
-    color: #8F43EE;
+    color: var(--click);
 }
 
 a[href$="@gmail.com"] {
-    color: #00c5e4;
+    color: #1B6B93;
     transition: color .1s ease-out;
 }
 a[href$="@gmail.com"]:hover {
-    color: #127fa4;
+    color: #4FC0D0;
 }
 
 /* Header */
@@ -69,29 +77,32 @@ header img {
     width: 15rem;
 }
 
+header a {
+    padding-right: 2rem;
+}
+
 header a[href="contacto.html"] {
     padding: 0 2rem;
     background-color: #000000;
     color: white;
 }
 header a[href="contacto.html"]:hover {
-    color: #FFF6E0;
+    color: var(--click);
 }
 
 /* Cards */
 .container-cards {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    gap: 1rem;
+    gap: 1.5rem;
 }
 
 .cards {
-    background-color: #272829c7;
+    background-color: var(--black);
     border-radius: 20px;
     display: flex;
     flex-direction: column;
     align-items: center;
-    flex-basis: 1;
     padding: 2rem;
 }
 
@@ -100,21 +111,32 @@ header a[href="contacto.html"]:hover {
     color: #FFFFFF;
 }
 
-.cards a {
-    display: block;
-    text-align: center;
-    color: #FFFFFF;
-}
-.cards a:hover {
-    color: #8F43EE;
-}
-
 .cards img {
-    width: 30rem;
-    height: 30rem;
-    /* padding: 2rem 0 0 0; */
+    width: 20rem;
+    height: 20rem;
+    padding: 2rem 0 0 0;
     border-radius: 50px;
     object-fit: cover;
+}
+
+/* Promotions */
+.promotions {
+    background-image: url(../media/img/promotions.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+    height: 30rem;
+    margin: 5rem 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.promotions h2 {
+    background-color: #FFFFFF;
+    font-size: 5rem;
+    border-radius: 14px;
+    padding: 2rem;
+    cursor: default;
 }
 
 /* Slider */
