@@ -22,8 +22,8 @@ const listaDeAcces = [
 const divProductos = document.getElementById('ver-productos');
 const divAccesorios = document.getElementById('ver-accesorios');
 
-mostrarCartas(listaDeProductos, divProductos, "ropa");
-mostrarCartas(listaDeAcces, divAccesorios, "accesorio");
+mostrarCartas(listaDeProductos, divProductos, "producto");
+mostrarCartas(listaDeAcces, divAccesorios, "accesorios");
 
 function mostrarCartas(array, divId, tipo) {
     const arrayNombres = array.map(e => e[0])
@@ -54,7 +54,7 @@ function mostrarCartas(array, divId, tipo) {
 
         /* Se crea una etiqueta <a> y se crea un enlace a otra página */
         let enlace = document.createElement('a');
-        enlace.href = "producto.html";
+        enlace.href = "PRODUCTOS/"+tipo+[i+1]+".html";
         enlace.innerHTML = "Visitar Producto",
         enlace.className = "btn";
         divCarta.append(enlace);
