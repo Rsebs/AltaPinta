@@ -19,11 +19,15 @@ const listaDeAcces = [
     ["Pulseras", "pulsera.jpeg", "$100.00"]
 ];
 
+/* Válidar index.html */
 const divProductos = document.getElementById('ver-productos');
 const divAccesorios = document.getElementById('ver-accesorios');
+if (divProductos && divAccesorios) {
+    mostrarCartas(listaDeAcces, divAccesorios, "accesorios");
+    mostrarCartas(listaDeProductos, divProductos, "producto");
+    mostrarSlider();
+}
 
-mostrarCartas(listaDeProductos, divProductos, "producto");
-mostrarCartas(listaDeAcces, divAccesorios, "accesorios");
 
 function mostrarCartas(array, divId, tipo) {
     const arrayNombres = array.map(e => e[0])
@@ -61,32 +65,21 @@ function mostrarCartas(array, divId, tipo) {
     }
 }
 
-/*-- Slider --*/
-const slider = document.querySelector(".slider");
-const images = document.querySelectorAll(".slider img");
-
-let counter = 0;
-const slideWidth = images[0].clientWidth;
-
-function nextSlide() {
-    counter++;
-    if (counter === images.length) {
-        counter = 0;
+function mostrarSlider() {
+    /*-- Slider --*/
+    const slider = document.querySelector(".slider");
+    const images = document.querySelectorAll(".slider img");
+    
+    let index = 1;
+    
+    function slide() {
+        let percentage = index * -100;
+        slider.style.transform = "translateX(" + percentage + "%)";
+        index++;
+        if (index == images.length) {
+            index = 0;
+        }
     }
-    updateSlider();
+
+    setInterval(slide, 4000)
 }
-
-function prevSlide() {
-    counter--;
-    if (counter < 0) {
-        counter = images.length - 1;
-    }
-    updateSlider();
-}
-
-function updateSlider() {
-    slider.style.transform = `translateX(-${counter * slideWidth}px)`;
-}
-
-setInterval(nextSlide, 3000); // Cambia automáticamente las imágenes cada 3 segundos
-
