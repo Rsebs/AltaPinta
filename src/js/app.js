@@ -96,7 +96,8 @@ const listProductos = [
         '$10000.00',
         'Accesorio'
     ),
-    new Producto(13, 
+    new Producto(
+        13, 
         'Anillos',
         'ACC-Anillos01.jpeg',
         '$50000.00',
@@ -128,7 +129,7 @@ const listProductos = [
 // Válidar index.html
 const divProductos = document.getElementById('ver-productos');
 const divAccesorios = document.getElementById('ver-accesorios');
-if (divProductos) {
+if (divProductos && divAccesorios) {
     mostrarCartas(listProductos, divProductos, divAccesorios);
     mostrarSlider();
 }
@@ -142,15 +143,34 @@ if (nombreProducto && precioProducto && divImagenProducto) {
 }
 
 //-- Funciones --
+function mostrarSlider() {
+    // Slider
+    const slider = document.querySelector('.slider');
+    const images = document.querySelectorAll('.slider img');
+    
+    let index = 1;
+    
+    function slide() {
+        let percentage = index * -100;
+        slider.style.transform = `translateX(${percentage}%)`;
+        index++;
+        if (index == images.length) {
+            index = 0;
+        }
+    }
+
+    setInterval(slide, 3000)
+}
+
 function mostrarCartas(array, divPrenda, divAccesorio) {
+    const ids = array.map(e => e.id);
     const nombres = array.map(e => e.nombre);
     const imagenes = array.map(e => e.imagen);
     const precios = array.map(e => e.precio);
-    const ids = array.map(e => e.id);
     const tipos = array.map(e => e.tipo);
 
     for(let i = 0; i < 16; i++) {
-        // Se crea un div para contenedor de las cartas
+        // Se crea una etiqueta <div> para contenedor de las cartas
         let divCarta = document.createElement('div');
         divCarta.className = 'cards';
         tipos[i] == 'Ropa' ? divPrenda.append(divCarta) : divAccesorio.append(divCarta)
@@ -158,7 +178,7 @@ function mostrarCartas(array, divPrenda, divAccesorio) {
         // Se crea una etiqueta <img> y se referencia
         let img = document.createElement('img');
         img.src = `src/img/productosImg/${imagenes[i]}`;
-        img.alt = 'No existe';
+        img.alt = 'Imagen producto';
         divCarta.append(img);
 
         // Se crea una etiqueta <p> y se muestra el texto
@@ -178,25 +198,6 @@ function mostrarCartas(array, divPrenda, divAccesorio) {
         enlace.className = 'btn';
         divCarta.append(enlace);
     }
-}
-
-function mostrarSlider() {
-    // Slider
-    const slider = document.querySelector('.slider');
-    const images = document.querySelectorAll('.slider img');
-    
-    let index = 1;
-    
-    function slide() {
-        let percentage = index * -100;
-        slider.style.transform = `translateX(${percentage}%)`;
-        index++;
-        if (index == images.length) {
-            index = 0;
-        }
-    }
-
-    setInterval(slide, 3000)
 }
 
 function mostrarProducto() {
