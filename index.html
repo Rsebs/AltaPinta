@@ -4,17 +4,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Alta Pinta</title>
-    <link rel="stylesheet" href="../../css/styles.css">
-    <link rel="icon" href="../media/img/logo.png" type="image/x-icon">
+    <link rel="icon" href="src/img/logo.png" type="image/x-icon">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Urbanist:ital,wght@0,300;0,500;1,900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="src/css/styles.css">
 </head>
 <body>
     <header>
-        <a href="../contacto.html">Contacte con nosotros</a>
+        <a href="contacto.html">Contacte con nosotros</a>
         <div>
-            <a href="../index.html"><img src="../../media/img/logo.png" alt="logo Alta Pinta"></a>
+            <a href="index.html"><img src="src/img/logo.png" alt="logo Alta Pinta"></a>
             <nav>
                 <a href="#prendas">Prendas</a>
                 <a href="#accesorios">Accesorios</a>
@@ -22,16 +22,33 @@
         </div>
     </header>
 
-    <section class="container"> 
-        <div class="product-view">
-            <h2>Anillos para parejas</h2>
-            <div class="div-img">
-                <img src="../../media/img/accesorios/anillosparejas.jpeg" alt="Imagen Anillos de parejas 1">
-            </div>
-            <p class="description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Error, harum tempora eveniet doloribus sit autem dicta quaerat enim magni dignissimos cupiditate illo ipsa voluptatibus quidem unde rerum, esse, cumque nesciunt! Velit saepe eius, dolores adipisci culpa quisquam a quasi dolor ipsam aperiam eum impedit sunt esse ab? Minima, veniam ex.</p>
-            <p class="price">$10000.00</p>
-            <button class="btn xl">Agregar al Carrito</button>
+    <div class="slider-container">
+        <div class="slider">
+            <img src="src/img/Slider/slide1.png" alt="Imagen 1">
+            <img src="src/img/Slider/slide2.png" alt="Imagen 2">
+            <img src="src/img/Slider/slide3.png" alt="Imagen 3">
         </div>
+    </div>
+    
+    <section class="container" id="prendas">
+        <h2>Prendas</h2>
+        <div id="ver-productos" class="container-cards"></div>
+    </section>
+
+    <section class="banner">
+        <img src="src/img/banner.png" alt="banner oferta">
+    </section>
+
+    <section>
+        <!-- Banner publicitario -->
+        <div class="promotions">
+            <h2>¡Tenemos ofertas especiales!</h2>
+        </div>
+    </section>
+
+    <section class="container" id="accesorios">
+        <h2>Accesorios</h2>
+        <div id="ver-accesorios" class="container-cards"></div>
     </section>
 
     <footer>
@@ -65,6 +82,6 @@
             <a href="mailto:arizajlive@gmail.com">arizajlive@gmail.com</a>
         </nav>
     </footer>
-    <script src="../../js/app.js"></script>
+    <script src="src/js/app.js"></script>
 </body>
 </html>
