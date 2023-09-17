@@ -51,7 +51,7 @@ const listProductos = [
         6,
         'Camisetas Oversize',
         ['ROPA-CamisaOverSize01.jpeg', 'ROPA-CamisaOverSize02.jpeg'],
-        '$25000',
+        '$25000.00',
         'Ropa'
     ),
     new Producto(
